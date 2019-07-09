@@ -8,17 +8,17 @@
 
 <img src="https://raw.githubusercontent.com/hyperoslo/Lightbox/master/Images/Icon.png" alt="Lightbox Icon" align="right" />
 
-**Lightbox** is a convenient and easy to use image viewer for your iOS app,
-packed with all the features you expect:
+**Lightbox** is a convenient and easy to use image viewer for your iOS app. Updated to swift 5.0. The credit go the original developer Hyper Interaktiv AS.
 
 - [x] Paginated image slideshow.
 - [x] Video support.
 - [x] Double-tap to zoom.
 - [x] Image caption.
 - [x] Dynamic background based on [Hue](https://github.com/hyperoslo/Hue)
-- [x] Remote image loading and caching based on [Imaginary](https://github.com/hyperoslo/Imaginary)
+- [x] Remote image loading and caching based on [AlamofireImage](https://github.com/Alamofire/AlamofireImage)
 - [x] Interactive transition animations.
 - [x] Powerful configuration.
+- [x] Support swift 5.0.
 - [x] [Live Demo](https://appetize.io/app/wfgwc2uvg82m9pzbt17p4rrgh4?device=iphone5s&scale=75&orientation=portrait&osVersion=9.3)
 
 <div align="center">
@@ -110,7 +110,7 @@ extension ViewController: LightboxControllerDismissalDelegate: class {
 
 ### Image loading
 
-By default images are loaded using [Imaginary](https://github.com/hyperoslo/Imaginary) for reliable loading and caching. But it's easy to change this behavior using **LightboxConfig**
+By default images are loaded using [AlamofireImage](https://github.com/Alamofire/AlamofireImage) for reliable loading and caching. But it's easy to change this behavior using **LightboxConfig**
 
 ```swift
 LightboxConfig.loadImage = {
@@ -148,7 +148,7 @@ LightboxConfig.handleVideo = { from, videoURL in
 ### Configuration
 
 Configure text, colors, fonts of UI elements by overriding the static
-variables in the **Lightbox** [configuration](https://github.com/hyperoslo/Lightbox/blob/master/Source/LightboxConfig.swift) struct. As an example:
+variables in the **Lightbox** [configuration](https://github.com/FlammerSL/LightboxV2/blob/master/Source/LightboxConfig.swift) struct. As an example:
 
 ```swift
 LightboxConfig.CloseButton.image = UIImage(named: ImageList.Lightbox.closeButton)
@@ -168,17 +168,7 @@ LightboxConfig.InfoLabel.ellipsisText = "Show more"
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'Lightbox'
-```
-
-In order to quickly try the demo project of a **Lightbox** just run
-`pod try Lightbox` in your terminal.
-
-**Lightbox** is also available through [Carthage](https://github.com/Carthage/Carthage).
-To install just write into your Cartfile:
-
-```ruby
-github "hyperoslo/Lightbox"
+pod 'LightboxV2'
 ```
 
 To install **Lightbox** manually just download and drop `Sources` and
@@ -190,8 +180,8 @@ Hyper Interaktiv AS, ios@hyper.no, Isuru Ranasinghe ,ranasinghe.i.u@gmail.com
 
 ## Contributing
 
-We would love you to contribute to **Lightbox**, check the [CONTRIBUTING](https://github.com/hyperoslo/Lightbox/blob/master/CONTRIBUTING.md) file for more info.
+We would love you to contribute to **Lightbox**, check the [CONTRIBUTING](https://github.com/FlammerSL/LightboxV2/blob/master/CONTRIBUTING.md) file for more info.
 
 ## License
 
-**Lightbox** is available under the MIT license. See the [LICENSE](https://github.com/hyperoslo/Lightbox/blob/master/LICENSE.md) file for more info.
+**Lightbox** is available under the MIT license. See the [LICENSE](https://github.com/FlammerSL/LightboxV2/blob/master/LICENSE.md) file for more info.
