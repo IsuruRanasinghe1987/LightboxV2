@@ -12,6 +12,6 @@ Pod::Spec.new do |s|
   s.ios.resource = 'Resources/Lightbox.bundle'
   s.swift_version = '5.0'
   s.frameworks = 'UIKit', 'AVFoundation', 'AVKit'
-  s.dependency 'AlamofireImage', '~> 4.0.0-beta.3'
+  s.dependency 'AlamofireImage', '~> 3.5.2'
 
 end
