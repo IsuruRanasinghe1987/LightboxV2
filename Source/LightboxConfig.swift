@@ -74,6 +74,23 @@ public class LightboxConfig {
       }()
     ]
   }
+    
+    public struct EditButton {
+        public static var enabled = true
+        public static var size: CGSize?
+        public static var text = NSLocalizedString("Edit", comment: "")
+        public static var image: UIImage?
+        
+        public static var textAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.boldSystemFont(ofSize: 16),
+            .foregroundColor: UIColor.white,
+            .paragraphStyle: {
+                var style = NSMutableParagraphStyle()
+                style.alignment = .center
+                return style
+            }()
+        ]
+    }
 
   public struct DeleteButton {
     public static var enabled = false

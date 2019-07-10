@@ -6,6 +6,7 @@ open class LightboxImage {
   open fileprivate(set) var imageURL: URL?
   open fileprivate(set) var videoURL: URL?
   open fileprivate(set) var imageClosure: (() -> UIImage)?
+ open fileprivate(set) var indexPath: IndexPath?
   open var text: String
 
   // MARK: - Initialization
@@ -14,22 +15,25 @@ open class LightboxImage {
     self.text = text
   }
 
-  public init(image: UIImage, text: String = "", videoURL: URL? = nil) {
+  public init(image: UIImage, text: String = "", videoURL: URL? = nil, indexPath: IndexPath? = nil) {
     self.image = image
     self.text = text
     self.videoURL = videoURL
+    self.indexPath = indexPath
   }
 
-  public init(imageURL: URL, text: String = "", videoURL: URL? = nil) {
+  public init(imageURL: URL, text: String = "", videoURL: URL? = nil, indexPath: IndexPath? = nil) {
     self.imageURL = imageURL
     self.text = text
     self.videoURL = videoURL
+    self.indexPath = indexPath
   }
 
-  public init(imageClosure: @escaping () -> UIImage, text: String = "", videoURL: URL? = nil) {
+  public init(imageClosure: @escaping () -> UIImage, text: String = "", videoURL: URL? = nil, indexPath: IndexPath? = nil) {
     self.imageClosure = imageClosure
     self.text = text
     self.videoURL = videoURL
+    self.indexPath = indexPath
   }
 
   open func addImageTo(_ imageView: UIImageView, completion: ((UIImage?) -> Void)? = nil) {

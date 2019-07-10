@@ -1,5 +1,5 @@
 import UIKit
-import Lightbox
+import LightboxV2
 
 class ViewController: UIViewController {
   
@@ -43,10 +43,24 @@ class ViewController: UIViewController {
       )
     ]
     
+    LightboxConfig.DeleteButton.enabled = true
+    LightboxConfig.EditButton.enabled = true
+    
     let controller = LightboxController(images: images)
     controller.dynamicBackground = true
-    
+    controller.actionDelegate = self
     present(controller, animated: true, completion: nil)
   }
 }
 
+extension ViewController:LightboxControllerActionDelegate{
+    func lightboxController(_ controller: LightboxController, didEdit image: LightboxImage, at index: Int) {
+        
+    }
+    
+    func lightboxController(_ controller: LightboxController, didDelete image: LightboxImage, at index: Int) {
+        
+    }
+    
+    
+}
