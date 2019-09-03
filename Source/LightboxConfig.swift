@@ -3,6 +3,7 @@ import AVKit
 import AVFoundation
 import Alamofire
 import AlamofireImage
+import WebKit
 
 public class LightboxConfig {
   /// Whether to show status bar while Lightbox is presented
@@ -31,6 +32,17 @@ public class LightboxConfig {
                 completion(response.value!)
             }
         }
+    }
+    
+    /// How to load pdf, word , excel onto webView
+    static func loadOtherFiles(url: URL?, webView: WKWebView?){
+        guard let nsurl = url else { return }
+        var webView = webView
+        let urlRequest = URLRequest(url: nsurl, cachePolicy: .reloadIgnoringCacheData)
+        if(webView == nil){
+            webView = WKWebView.init()
+        }
+        webView!.load(urlRequest)
     }
 
   /// Indicator is used to show while image is being fetched

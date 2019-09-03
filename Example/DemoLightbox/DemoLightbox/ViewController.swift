@@ -40,7 +40,8 @@ class ViewController: UIViewController {
       LightboxImage(
         image: UIImage(named: "photo3")!,
         text: "A lightbox is a translucent surface illuminated from behind, used for situations where a shape laid upon the surface needs to be seen with high contrast."
-      )
+      ),
+      LightboxImage.init(text: "PDF",otherFileURL:URL(string: "https://gahp.net/wp-content/uploads/2017/09/sample.pdf"))
     ]
     
     LightboxConfig.DeleteButton.enabled = true

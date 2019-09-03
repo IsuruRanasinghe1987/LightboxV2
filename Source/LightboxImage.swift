@@ -1,10 +1,12 @@
 import UIKit
+import WebKit
 
 open class LightboxImage {
 
   open fileprivate(set) var image: UIImage?
   open fileprivate(set) var imageURL: URL?
   open fileprivate(set) var videoURL: URL?
+    open fileprivate(set) var otherFileURL: URL?
   open fileprivate(set) var imageClosure: (() -> UIImage)?
  open fileprivate(set) var indexPath: IndexPath?
   open var text: String
@@ -15,25 +17,27 @@ open class LightboxImage {
     self.text = text
   }
 
-  public init(image: UIImage, text: String = "", videoURL: URL? = nil, indexPath: IndexPath? = nil) {
+  public init(image: UIImage, text: String = "", videoURL: URL? = nil, indexPath: IndexPath? = nil, otherFileURL: URL? = nil) {
     self.image = image
     self.text = text
     self.videoURL = videoURL
     self.indexPath = indexPath
+    self.otherFileURL = otherFileURL
   }
 
-  public init(imageURL: URL, text: String = "", videoURL: URL? = nil, indexPath: IndexPath? = nil) {
+  public init(imageURL: URL, text: String = "", videoURL: URL? = nil, indexPath: IndexPath? = nil, otherFileURL: URL? = nil) {
     self.imageURL = imageURL
     self.text = text
     self.videoURL = videoURL
     self.indexPath = indexPath
+    self.otherFileURL = otherFileURL
   }
 
-  public init(imageClosure: @escaping () -> UIImage, text: String = "", videoURL: URL? = nil, indexPath: IndexPath? = nil) {
-    self.imageClosure = imageClosure
+  public init(text: String = "", videoURL: URL? = nil, indexPath: IndexPath? = nil, otherFileURL: URL? = nil) {
     self.text = text
     self.videoURL = videoURL
     self.indexPath = indexPath
+    self.otherFileURL = otherFileURL
   }
 
   open func addImageTo(_ imageView: UIImageView, completion: ((UIImage?) -> Void)? = nil) {
@@ -51,4 +55,10 @@ open class LightboxImage {
       completion?(nil)
     }
   }
+    
+    open func addWebViewTo(_ webView: WKWebView) {
+        if let otherFileURL = otherFileURL {
+            LightboxConfig.loadOtherFiles(url: otherFileURL, webView: webView)
+        }
+    }
 }

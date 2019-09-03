@@ -1,4 +1,5 @@
 import UIKit
+import WebKit
 
 protocol PageViewDelegate: class {
 
@@ -18,6 +19,14 @@ class PageView: UIScrollView {
 
     return imageView
   }()
+    
+    lazy var webView: WKWebView = {
+        let webView = WKWebView()
+        webView.contentMode = .scaleAspectFit
+        webView.clipsToBounds = true
+        webView.isUserInteractionEnabled = true
+        return webView
+    }()
 
   lazy var playButton: UIButton = {
     let button = UIButton(type: .custom)
@@ -49,9 +58,16 @@ class PageView: UIScrollView {
     self.image = image
     super.init(frame: CGRect.zero)
 
-    configure()
-
-    fetchImage()
+    if(image.otherFileURL != nil){
+        configureWeb()
+        addSubview(webView)
+        imageView.removeFromSuperview()
+        webView.load(URLRequest(url: image.otherFileURL!))
+    }else{
+        configure()
+        webView.removeFromSuperview()
+        fetchImage()
+    }
   }
 
   required init?(coder aDecoder: NSCoder) {
@@ -84,6 +100,30 @@ class PageView: UIScrollView {
 
     tapRecognizer.require(toFail: doubleTapRecognizer)
   }
+    
+    // MARK: - Configuration
+    
+    func configureWeb() {
+        addSubview(loadingIndicator)
+        delegate = self
+        isMultipleTouchEnabled = true
+        minimumZoomScale = LightboxConfig.Zoom.minimumScale
+        maximumZoomScale = LightboxConfig.Zoom.maximumScale
+        showsHorizontalScrollIndicator = false
+        showsVerticalScrollIndicator = false
+        
+        let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(scrollViewDoubleTapped(_:)))
+        doubleTapRecognizer.numberOfTapsRequired = 2
+        doubleTapRecognizer.numberOfTouchesRequired = 1
+        addGestureRecognizer(doubleTapRecognizer)
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
+        addGestureRecognizer(tapRecognizer)
+        
+        tapRecognizer.require(toFail: doubleTapRecognizer)
+        
+        centerWebView()
+    }
 
   // MARK: - Update
   func update(with image: LightboxImage) {
@@ -173,7 +213,7 @@ class PageView: UIScrollView {
 
     centerImageView()
   }
-
+    
   func centerImageView() {
     let boundsSize = contentFrame.size
     var imageViewFrame = imageView.frame
@@ -192,6 +232,25 @@ class PageView: UIScrollView {
 
     imageView.frame = imageViewFrame
   }
+    
+    func centerWebView() {
+        let boundsSize = contentFrame.size
+        var webViewFrame = webView.frame
+        
+        if webViewFrame.size.width < boundsSize.width {
+            webViewFrame.origin.x = (boundsSize.width - webViewFrame.size.width) / 2.0
+        } else {
+            webViewFrame.origin.x = 0.0
+        }
+        
+        if webViewFrame.size.height < boundsSize.height {
+            webViewFrame.origin.y = (boundsSize.height - webViewFrame.size.height) / 2.0
+        } else {
+            webViewFrame.origin.y = 80
+        }
+        
+        webView.frame = webViewFrame
+    }
 
   // MARK: - Action
 
@@ -212,7 +271,10 @@ extension PageView: LayoutConfigurable {
     imageView.frame = frame
     zoomScale = minimumZoomScale
 
+    webView.frame = frame
+    webView.frame.origin.y = webView.frame.origin.y + 40
     configureImageView()
+    configureWeb()
   }
 }
 

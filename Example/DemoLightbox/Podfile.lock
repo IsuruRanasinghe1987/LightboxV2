@@ -2,7 +2,7 @@ PODS:
   - Alamofire (4.8.2)
   - AlamofireImage (3.5.2):
     - Alamofire (~> 4.8)
-  - LightboxV2 (2.4.1):
+  - LightboxV2 (2.4.2):
     - AlamofireImage (~> 3.5.2)
 
 DEPENDENCIES:
@@ -20,8 +20,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
-  LightboxV2: 0a2343272f3097b1d6f0c91504cb8593846c7e6e
+  LightboxV2: daf9f1da71b3b4512af1f1901782fba18ec8aaf7
 
 PODFILE CHECKSUM: 28b1e6c3b378009b7e902fadd93b15fb9a820851
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.7.4
