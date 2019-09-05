@@ -35,13 +35,13 @@ class ViewController: UIViewController {
       LightboxImage(
         image: UIImage(named: "photo2")!,
         text: "Emoji 😍 (/ɪˈmoʊdʒi/; singular emoji, plural emoji or emojis;[4] from the Japanese 絵文字えもじ, pronounced [emodʑi]) are ideograms and smileys used in electronic messages and web pages. Emoji are used much like emoticons and exist in various genres, including facial expressions, common objects, places and types of weather 🌅☔️💦, and animals 🐶🐱",
-        videoURL: URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
+        videoURL: URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"), isEditable: false
       ),
       LightboxImage(
         image: UIImage(named: "photo3")!,
         text: "A lightbox is a translucent surface illuminated from behind, used for situations where a shape laid upon the surface needs to be seen with high contrast."
       ),
-      LightboxImage.init(text: "PDF",otherFileURL:URL(string: "https://gahp.net/wp-content/uploads/2017/09/sample.pdf"))
+      LightboxImage.init(text: "PDF",otherFileURL:URL(string: "https://gahp.net/wp-content/uploads/2017/09/sample.pdf"), isEditable: false)
     ]
     
     LightboxConfig.DeleteButton.enabled = true

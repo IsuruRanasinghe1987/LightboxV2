@@ -9,6 +9,8 @@ open class LightboxImage {
     open fileprivate(set) var otherFileURL: URL?
   open fileprivate(set) var imageClosure: (() -> UIImage)?
  open fileprivate(set) var indexPath: IndexPath?
+    open fileprivate(set) var isEditable: Bool?
+
   open var text: String
 
   // MARK: - Initialization
@@ -17,27 +19,30 @@ open class LightboxImage {
     self.text = text
   }
 
-  public init(image: UIImage, text: String = "", videoURL: URL? = nil, indexPath: IndexPath? = nil, otherFileURL: URL? = nil) {
+    public init(image: UIImage, text: String = "", videoURL: URL? = nil, indexPath: IndexPath? = nil, otherFileURL: URL? = nil, isEditable: Bool = true) {
     self.image = image
     self.text = text
     self.videoURL = videoURL
     self.indexPath = indexPath
     self.otherFileURL = otherFileURL
+    self.isEditable = isEditable
   }
 
-  public init(imageURL: URL, text: String = "", videoURL: URL? = nil, indexPath: IndexPath? = nil, otherFileURL: URL? = nil) {
+  public init(imageURL: URL, text: String = "", videoURL: URL? = nil, indexPath: IndexPath? = nil, otherFileURL: URL? = nil, isEditable: Bool = true) {
     self.imageURL = imageURL
     self.text = text
     self.videoURL = videoURL
     self.indexPath = indexPath
     self.otherFileURL = otherFileURL
+    self.isEditable = isEditable
   }
 
-  public init(text: String = "", videoURL: URL? = nil, indexPath: IndexPath? = nil, otherFileURL: URL? = nil) {
+  public init(text: String = "", videoURL: URL? = nil, indexPath: IndexPath? = nil, otherFileURL: URL? = nil, isEditable: Bool = true) {
     self.text = text
     self.videoURL = videoURL
     self.indexPath = indexPath
     self.otherFileURL = otherFileURL
+    self.isEditable = isEditable
   }
 
   open func addImageTo(_ imageView: UIImageView, completion: ((UIImage?) -> Void)? = nil) {

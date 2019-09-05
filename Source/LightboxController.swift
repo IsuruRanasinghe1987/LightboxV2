@@ -102,6 +102,9 @@ open class LightboxController: UIViewController {
             
             pageDelegate?.lightboxController(self, didMoveToPage: currentPage)
             
+            headerView.deleteButton.isHidden = !(pageViews[currentPage].image.isEditable ?? true)
+            headerView.editButton.isHidden = !(pageViews[currentPage].image.isEditable ?? true)
+            
             if let image = pageViews[currentPage].imageView.image, dynamicBackground {
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.125) {
                     self.loadDynamicBackground(image)

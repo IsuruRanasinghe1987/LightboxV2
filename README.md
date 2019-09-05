@@ -19,6 +19,7 @@
 - [x] Interactive transition animations.
 - [x] Powerful configuration.
 - [x] Support swift 5.0.
+- [x] Image removing support.
 - [x] [Live Demo](https://appetize.io/app/wfgwc2uvg82m9pzbt17p4rrgh4?device=iphone5s&scale=75&orientation=portrait&osVersion=9.3)
 
 <div align="center">
