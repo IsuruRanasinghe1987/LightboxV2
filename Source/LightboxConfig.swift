@@ -41,7 +41,7 @@ public class LightboxConfig {
         if(webView == nil){
             webView = WKWebView.init()
         }
-        if(url?.absoluteString.contains("file://")){
+        if((url?.absoluteString.contains("file://"))!){
             let documentDirUrl = nsurl.deletingLastPathComponent()
             webView!.loadFileURL(nsurl, allowingReadAccessTo: documentDirUrl)
         }else{

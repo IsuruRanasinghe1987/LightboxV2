@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "LightboxV2"
   s.summary          = "A convenient and easy to use image viewer for your iOS app. Updated to swift 5.0. The credit go the original developer Hyper Interaktiv AS."
-  s.version          = "2.4.5"
+  s.version          = "2.4.6"
   s.homepage         = "https://github.com/FlammerSL/LightboxV2"
   s.license          = 'MIT'
   s.author           = {"Isuru Ranasinghe" => "ranasinghe.i.u@gmail.com"}
