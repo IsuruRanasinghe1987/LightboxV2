@@ -38,11 +38,17 @@ public class LightboxConfig {
     static func loadOtherFiles(url: URL?, webView: WKWebView?){
         guard let nsurl = url else { return }
         var webView = webView
-        let urlRequest = URLRequest(url: nsurl, cachePolicy: .reloadIgnoringCacheData)
         if(webView == nil){
             webView = WKWebView.init()
         }
-        webView!.load(urlRequest)
+        if(url?.absoluteString.contains("file://")){
+            let documentDirUrl = nsurl.deletingLastPathComponent()
+            webView!.loadFileURL(nsurl, allowingReadAccessTo: documentDirUrl)
+        }else{
+            let urlRequest = URLRequest(url: nsurl, cachePolicy: .reloadIgnoringCacheData)
+            webView!.load(urlRequest)
+        }
+        
     }
 
   /// Indicator is used to show while image is being fetched
