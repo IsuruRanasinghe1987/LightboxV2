@@ -50,6 +50,7 @@ class ViewController: UIViewController {
     let controller = LightboxController(images: images)
     controller.dynamicBackground = true
     controller.actionDelegate = self
+    controller.modalPresentationStyle = .fullScreen
     present(controller, animated: true, completion: nil)
   }
 }

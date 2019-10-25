@@ -1,27 +1,24 @@
 PODS:
-  - Alamofire (4.8.2)
-  - AlamofireImage (3.5.2):
-    - Alamofire (~> 4.8)
-  - LightboxV2 (2.4.2):
-    - AlamofireImage (~> 3.5.2)
+  - Alamofire (5.0.0-rc.2)
+  - AlamofireImage (4.0.0-beta.5):
+    - Alamofire (~> 5.0.0-rc.2)
+  - LightboxV2 (2.4.7):
+    - AlamofireImage (~> 4.0.0-beta.5)
 
 DEPENDENCIES:
-  - LightboxV2 (from `../../`)
+  - LightboxV2
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireImage
-
-EXTERNAL SOURCES:
-  LightboxV2:
-    :path: "../../"
+    - LightboxV2
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
-  LightboxV2: daf9f1da71b3b4512af1f1901782fba18ec8aaf7
+  Alamofire: f9450d3c7f6bea2ad62e7a541c3e9b186c7991d6
+  AlamofireImage: f6dfe201f6d59cc6a045b5cb228b58962b8ef31d
+  LightboxV2: bba0b0584ae391765feb286589493e618adf73dc
 
-PODFILE CHECKSUM: 28b1e6c3b378009b7e902fadd93b15fb9a820851
+PODFILE CHECKSUM: dd0407767a59e2dc9d8555cbf818f2b79b011a89
 
-COCOAPODS: 1.7.4
+COCOAPODS: 1.7.2

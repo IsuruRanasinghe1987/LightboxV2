@@ -306,7 +306,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
 				LastUpgradeCheck = 1100;
-				ORGANIZATIONNAME = "Hyper Interaktiv AS";
+				ORGANIZATIONNAME = "AI Solutions";
 				TargetAttributes = {
 					D229B5E01FC3123F00F04123 = {
 						CreatedOnToolsVersion = 9.1;
