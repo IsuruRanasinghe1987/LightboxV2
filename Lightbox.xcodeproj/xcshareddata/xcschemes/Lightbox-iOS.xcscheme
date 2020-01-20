@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D523B0A81C43AA2A001AD1EC"
-               BuildableName = "Lightbox.framework"
+               BuildableName = "LightboxV2.framework"
                BlueprintName = "Lightbox-iOS"
                ReferencedContainer = "container:Lightbox.xcodeproj">
             </BuildableReference>
@@ -31,7 +31,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D523B0A81C43AA2A001AD1EC"
-            BuildableName = "Lightbox.framework"
+            BuildableName = "LightboxV2.framework"
             BlueprintName = "Lightbox-iOS"
             ReferencedContainer = "container:Lightbox.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D523B0A81C43AA2A001AD1EC"
-            BuildableName = "Lightbox.framework"
+            BuildableName = "LightboxV2.framework"
             BlueprintName = "Lightbox-iOS"
             ReferencedContainer = "container:Lightbox.xcodeproj">
          </BuildableReference>
@@ -81,7 +81,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D523B0A81C43AA2A001AD1EC"
-            BuildableName = "Lightbox.framework"
+            BuildableName = "LightboxV2.framework"
             BlueprintName = "Lightbox-iOS"
             ReferencedContainer = "container:Lightbox.xcodeproj">
          </BuildableReference>
