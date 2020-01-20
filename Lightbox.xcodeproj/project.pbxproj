@@ -157,7 +157,6 @@
 		D22006721DFB4D9700E92898 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D22006731DFB4D9700E92898 /* Lightbox.bundle */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -207,6 +206,7 @@
 		D523B0AB1C43AA2A001AD1EC /* Lightbox */ = {
 			isa = PBXGroup;
 			children = (
+				D22006731DFB4D9700E92898 /* Lightbox.bundle */,
 				D523B0AE1C43AA2A001AD1EC /* Info.plist */,
 			);
 			path = Lightbox;
