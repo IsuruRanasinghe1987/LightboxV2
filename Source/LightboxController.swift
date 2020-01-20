@@ -337,13 +337,11 @@ open class LightboxController: UIViewController {
     
     func toggleControls(pageView: PageView?, visible: Bool, duration: TimeInterval = 0.1, delay: TimeInterval = 0) {
         let alpha: CGFloat = visible ? 1.0 : 0.0
-        
-        pageView?.playButton.isHidden = !visible
-        
+//        pageView?.playButton.isHidden = !visible
         UIView.animate(withDuration: duration, delay: delay, options: [], animations: {
             self.headerView.alpha = alpha
             self.footerView.alpha = alpha
-            pageView?.playButton.alpha = alpha
+//            pageView?.playButton.alpha = alpha
         }, completion: nil)
     }
     
