@@ -20,7 +20,7 @@ public class LightboxConfig {
   }
 
     /// How to load image onto UIImageView
-    static func loadImage(url: URL?, imageView: UIImageView?, completion:((_ image: UIImage) ->())?){
+    static func loadImage(url: URL?, imageView: UIImageView?, completion:((_ image: UIImage?) ->())?){
         guard let nsurl = url else { return }
         var imgView = imageView
         let urlRequest = URLRequest(url: nsurl, cachePolicy: .reloadIgnoringCacheData)
@@ -29,7 +29,7 @@ public class LightboxConfig {
         }
         imgView!.af_setImage(withURL: urlRequest.url!) { (response) in
             if let completion = completion{
-                completion(response.value!)
+                completion(response.value)
             }
         }
     }

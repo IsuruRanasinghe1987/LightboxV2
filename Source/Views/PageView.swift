@@ -20,12 +20,12 @@ class PageView: UIScrollView {
     return imageView
   }()
     
-    lazy var webView: WKWebView = {
-        let webView = WKWebView()
-        webView.contentMode = .scaleAspectFit
-        webView.clipsToBounds = true
-        webView.isUserInteractionEnabled = true
-        return webView
+    lazy var webKit: WKWebView = {
+        let webkit = WKWebView()
+        webkit.contentMode = .scaleAspectFit
+        webkit.clipsToBounds = true
+        webkit.isUserInteractionEnabled = true
+        return webkit
     }()
 
   lazy var playButton: UIButton = {
@@ -60,12 +60,12 @@ class PageView: UIScrollView {
 
     if(image.otherFileURL != nil){
         configureWeb()
-        addSubview(webView)
+        addSubview(webKit)
         imageView.removeFromSuperview()
-        webView.load(URLRequest(url: image.otherFileURL!))
+        webKit.load(URLRequest(url: image.otherFileURL!))
     }else{
         configure()
-        webView.removeFromSuperview()
+        webKit.removeFromSuperview()
         fetchImage()
     }
   }
@@ -235,7 +235,7 @@ class PageView: UIScrollView {
     
     func centerWebView() {
         let boundsSize = contentFrame.size
-        var webViewFrame = webView.frame
+        var webViewFrame = webKit.frame
         
         if webViewFrame.size.width < boundsSize.width {
             webViewFrame.origin.x = (boundsSize.width - webViewFrame.size.width) / 2.0
@@ -249,7 +249,7 @@ class PageView: UIScrollView {
             webViewFrame.origin.y = 80
         }
         
-        webView.frame = webViewFrame
+        webKit.frame = webViewFrame
     }
 
   // MARK: - Action
@@ -271,8 +271,8 @@ extension PageView: LayoutConfigurable {
     imageView.frame = frame
     zoomScale = minimumZoomScale
 
-    webView.frame = frame
-    webView.frame.origin.y = webView.frame.origin.y + 40
+    webKit.frame = frame
+    webKit.frame.origin.y = webKit.frame.origin.y + 40
     configureImageView()
     configureWeb()
   }

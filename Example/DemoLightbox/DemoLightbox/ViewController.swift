@@ -35,7 +35,7 @@ class ViewController: UIViewController {
       LightboxImage(
         image: UIImage(named: "photo2")!,
         text: "Emoji 😍 (/ɪˈmoʊdʒi/; singular emoji, plural emoji or emojis;[4] from the Japanese 絵文字えもじ, pronounced [emodʑi]) are ideograms and smileys used in electronic messages and web pages. Emoji are used much like emoticons and exist in various genres, including facial expressions, common objects, places and types of weather 🌅☔️💦, and animals 🐶🐱",
-        videoURL: URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"), isEditable: false
+        videoURL: URL(string: "https://dev1rockjrcmobstgape.blob.core.windows.net/attachments-a0d91f06-9f03-42c2-a9b0-5c5dec5ddd94/d9377862-73cb-4e94-9e06-8393285f6e20.mp4?sv=2017-04-17&sr=b&si=readonly&sig=GcwKZRjF2FuGaX3O1cA2SSDKC%2FdttbC7MwJIJ8Scc2s%3D&se=2020-01-20T09%3A36%3A53Z"), isEditable: false
       ),
       LightboxImage(
         image: UIImage(named: "photo3")!,
