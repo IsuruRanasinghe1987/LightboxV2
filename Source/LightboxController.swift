@@ -429,15 +429,9 @@ extension LightboxController: PageViewDelegate {
 
 extension LightboxController: HeaderViewDelegate {
     
-    func headerView(_ headerView: HeaderView, didPressDeleteButton deleteButton: UIButton) {
+        func headerView(_ headerView: HeaderView, didPressDeleteButton deleteButton: UIButton) {
         deleteButton.isEnabled = false
-        
-        guard numberOfPages != 1 else {
-            pageViews.removeAll()
-            self.headerView(headerView, didPressCloseButton: headerView.closeButton)
-            return
-        }
-        
+
         let prevIndex = currentPage
         
         if currentPage == numberOfPages - 1 {
@@ -446,15 +440,18 @@ extension LightboxController: HeaderViewDelegate {
             next()
             currentPage -= 1
         }
-        
-        self.pageViews.remove(at: prevIndex).removeFromSuperview()
-        self.initialImages.remove(at: prevIndex)
-        
+
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
-            self.configureLayout(self.view.bounds.size)
-            self.currentPage = Int(self.scrollView.contentOffset.x / self.view.bounds.width)
             self.actionDelegate?.lightboxController(self, didDelete: self.images[prevIndex], at: prevIndex)
             deleteButton.isEnabled = true
+            self.pageViews.remove(at: prevIndex).removeFromSuperview()
+            self.initialImages.remove(at: prevIndex)
+            self.configureLayout(self.view.bounds.size)
+            guard self.numberOfPages != 0 else {
+                self.headerView(headerView, didPressCloseButton: headerView.closeButton)
+                return
+            }
+            self.currentPage = Int(self.scrollView.contentOffset.x / self.view.bounds.width)
         }
     }
     
@@ -471,6 +468,7 @@ extension LightboxController: HeaderViewDelegate {
         dismiss(animated: true, completion: nil)
     }
 }
+
 
 // MARK: - FooterViewDelegate
 

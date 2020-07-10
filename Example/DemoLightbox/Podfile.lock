@@ -1,24 +1,27 @@
 PODS:
-  - Alamofire (5.0.0-rc.3)
-  - AlamofireImage (4.0.0-beta.6):
-    - Alamofire (~> 5.0.0-rc.3)
-  - LightboxV2 (2.4.9):
+  - Alamofire (5.2.1)
+  - AlamofireImage (4.0.3):
+    - Alamofire (< 6.0.0, >= 5.0.2)
+  - LightboxV2 (2.5.4):
     - AlamofireImage (~> 4.0.0-beta.5)
 
 DEPENDENCIES:
-  - LightboxV2
+  - LightboxV2 (from `../../`)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - AlamofireImage
-    - LightboxV2
+
+EXTERNAL SOURCES:
+  LightboxV2:
+    :path: "../../"
 
 SPEC CHECKSUMS:
-  Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
-  AlamofireImage: edf3216fd178a89d63e681e609909d7ac98fa3c6
-  LightboxV2: b0f6034f43fd73ea36d3c6dc13cdfbffa5668d99
+  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
+  AlamofireImage: 3d1a2010519e58675318735580eb856e88840ff7
+  LightboxV2: 9960b67b32c317fde5d76db659d06c7d2812159e
 
-PODFILE CHECKSUM: dd0407767a59e2dc9d8555cbf818f2b79b011a89
+PODFILE CHECKSUM: 969bc0e161bfd2b9719a214f15af8001256226e3
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1

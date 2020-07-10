@@ -27,21 +27,9 @@ class ViewController: UIViewController {
   
   @objc func showLightbox() {
     let images = [
-      LightboxImage(imageURL: URL(string: "https://cdn.arstechnica.net/2011/10/05/iphone4s_sample_apple-4e8c706-intro.jpg")!),
-      LightboxImage(
-        image: UIImage(named: "photo1")!,
-        text: "Photography is the science, art, application and practice of creating durable images by recording light or other electromagnetic radiation, either electronically by means of an image sensor, or chemically by means of a light-sensitive material such as photographic film"
-      ),
-      LightboxImage(
-        image: UIImage(named: "photo2")!,
-        text: "Emoji 😍 (/ɪˈmoʊdʒi/; singular emoji, plural emoji or emojis;[4] from the Japanese 絵文字えもじ, pronounced [emodʑi]) are ideograms and smileys used in electronic messages and web pages. Emoji are used much like emoticons and exist in various genres, including facial expressions, common objects, places and types of weather 🌅☔️💦, and animals 🐶🐱",
-        videoURL: URL(string: "https://dev1rockjrcmobstgape.blob.core.windows.net/attachments-a0d91f06-9f03-42c2-a9b0-5c5dec5ddd94/d9377862-73cb-4e94-9e06-8393285f6e20.mp4?sv=2017-04-17&sr=b&si=readonly&sig=GcwKZRjF2FuGaX3O1cA2SSDKC%2FdttbC7MwJIJ8Scc2s%3D&se=2020-01-20T09%3A36%3A53Z"), isEditable: false
-      ),
-      LightboxImage(
-        image: UIImage(named: "photo3")!,
-        text: "A lightbox is a translucent surface illuminated from behind, used for situations where a shape laid upon the surface needs to be seen with high contrast."
-      ),
-      LightboxImage.init(text: "PDF",otherFileURL:URL(string: "https://gahp.net/wp-content/uploads/2017/09/sample.pdf"), isEditable: false)
+      LightboxImage(imageURL: URL(string: "https://cdn.pixabay.com/photo/2015/05/15/14/47/computer-768696_960_720.jpg")!),
+      LightboxImage(imageURL: URL(string: "https://cdn.pixabay.com/photo/2020/07/05/22/04/young-hare-5374708_960_720.jpg")!),
+      LightboxImage(imageURL: URL(string: "https://cdn.pixabay.com/photo/2020/07/04/06/40/clouds-5368435_960_720.jpg")!)
     ]
     
     LightboxConfig.DeleteButton.enabled = true
@@ -61,7 +49,13 @@ extension ViewController:LightboxControllerActionDelegate{
     }
     
     func lightboxController(_ controller: LightboxController, didDelete image: LightboxImage, at index: Int) {
-        
+        if let imageUrl = image.imageURL{
+            debugPrint(imageUrl.absoluteString)
+        }else if let videoURL = image.videoURL{
+            debugPrint(videoURL.absoluteString)
+        }else{
+            debugPrint("No url found")
+        }
     }
     
     
